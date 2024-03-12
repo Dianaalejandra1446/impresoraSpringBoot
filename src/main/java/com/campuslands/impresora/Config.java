@@ -5,7 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class Config {
+    /*Define los beans que Spring administrará.*/
+    public class Config {
     
     @Bean
     public Impresora impresoraConsola(){
@@ -15,6 +16,7 @@ public class Config {
     public Impresora impresoraArchivo(){
         return new impresoraArchivo();
     }
+    /*@Qualifier para especificar cuál implementación de Impresora se debe utilizar en los métodos reporteConsola y reporteArchivo.*/
     @Bean
     public Reporte reporteConsola (@Qualifier ("impresoraConsola")Impresora impresora){
         return new Reporte(impresora);
